@@ -1,0 +1,41 @@
+<html>  
+<head>  
+<title>Dollar Multiplication</title>
+  
+<script type="text/javascript">  
+function multiply(){  
+	var a,b,result;  
+	a=parseFloat(document.getElementById("t1").value);  
+	b=parseFloat(document.getElementById("t2").value);  
+	result=document.getElementById("result");  
+	result.value=a * b;  
+}  
+</script>
+</head>  
+
+<body>  
+<form>  
+<tr>  
+<th>Dollar $</th>  
+<td><input  id="t1" name="data1" type="text" size="20" maxlength="20"/></td>  
+</tr>  
+<br>  
+<tr>  
+<th>Mulitplier</th>  
+<td><input  id="t2" name="data2" type="text" size="20" maxlength="20"/></td>  
+</tr>
+<br>
+<tr>
+<th>times</th>
+<td>
+<input id="times" type="button" name="multiplication" value="*" onclick="multiply();"/>
+</td>
+</tr>  
+<br>  
+<tr><th>Result</th>  
+<td><input  id="result" name="data3" type="text"/></td>  
+</tr>   
+</form>  
+</body>
+
+</html>
