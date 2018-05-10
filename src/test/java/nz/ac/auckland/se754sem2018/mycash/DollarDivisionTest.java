@@ -19,6 +19,11 @@ public class DollarDivisionTest {
 		assertEquals(5, ten.amount);
 	}
 	
+//	@Test
+//	public void testFail() {
+//		fail("Not yet implemented");
+//	}
+	
 //	@Test(expected=ArithmeticException.class)
 //	public void testDollarDividedByZero() {
 //		// Given
@@ -27,7 +32,7 @@ public class DollarDivisionTest {
 //		// When
 //		ten.dividedBy(0);
 //	}
-//	
+	
 //	@Ignore
 //	@Test(timeout=5000)
 //	public void testDivisionTimeout() {
@@ -35,7 +40,7 @@ public class DollarDivisionTest {
 //			
 //		}
 //	}
-//	
+	
 //	@Ignore
 //	@Test
 //	public void testEqualOperation() {
