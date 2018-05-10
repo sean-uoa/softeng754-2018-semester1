@@ -11,4 +11,8 @@ public class Dollar {
 	public void times(int multiplier) {
 		this.amount  *= multiplier;
 	}
+	
+	public void dividedBy(int denominator) {
+		amount /= denominator;
+	}
 }
