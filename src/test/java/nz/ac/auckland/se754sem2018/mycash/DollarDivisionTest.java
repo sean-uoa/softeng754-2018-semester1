@@ -7,6 +7,12 @@ import org.junit.Test;
 
 public class DollarDivisionTest {
 	
+	@Ignore
+	@Test
+	public void testFail() {
+		fail("Not yet implemented");
+	}
+	
 	@Test
 	public void testDollarDivision() {
 		// Given
@@ -19,22 +25,17 @@ public class DollarDivisionTest {
 		assertEquals(5, ten.amount);
 	}
 	
-//	@Test
-//	public void testFail() {
-//		fail("Not yet implemented");
-//	}
-	
-//	@Test(expected=ArithmeticException.class)
-//	public void testDollarDividedByZero() {
-//		// Given
-//		Dollar ten = new Dollar(10);
-//		
-//		// When
-//		ten.dividedBy(0);
-//	}
+	@Test(expected=ArithmeticException.class)
+	public void testDollarDividedByZero() {
+		// Given
+		Dollar ten = new Dollar(10);
+		
+		// When
+		ten.dividedBy(0);
+	}
 	
 //	@Test()
-//	public void testDollarDividedByNegativeNumber() {
+//	public void shouldThrowExceptinWhenDividedByMinusTwo() {
 //		// Given
 //		Dollar ten = new Dollar(10);
 //		
@@ -42,26 +43,27 @@ public class DollarDivisionTest {
 //		ten.dividedBy(-2);
 //	}
 	
-//	@Ignore
-//	@Test
-//	public void testEqualOperation() {
-//		// Given
-//		Dollar ten = new Dollar(10);
-//		Dollar anotherTen = new Dollar(10);
-//				
-//		// When
-//		boolean result = ten.equals(anotherTen);
-//				
-//		// Then
-//		assertTrue(result);
-//	}
+	@Ignore
+	@Test
+	public void testEqualOperation() {
+		// Given
+		Dollar ten = new Dollar(10);
+		Dollar anotherTen = new Dollar(10);
+				
+		// When
+		boolean result = ten.equals(anotherTen);
+				
+		// Then
+		assertTrue(result);
+	}
 	
-//	@Test(timeout=5000)
-//	public void testDivisionTimeout() {
-//		for( ; ; ) {
-//			
-//		}
-//	}
+	@Ignore
+	@Test(timeout=2000)
+	public void testDivisionTimeout() {
+		for( ; ; ) {
+			
+		}
+	}
 	
 
 }

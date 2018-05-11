@@ -25,12 +25,12 @@ public class FixtureDemoTest {
 		System.out.println("In after");
 	}
 	
-	@Test public void testCase1() {
-		System.out.println("In testCase1");
+	@Test public void testMethod1() {
+		System.out.println("In testMethod1");
 	}
 	
-	@Test public void testCase2() {
-		System.out.println("In testCase2");
+	@Test public void testMethod2() {
+		System.out.println("In testMethod2");
 	}
 	
 }
