@@ -38,11 +38,18 @@
 	    <artifactId>jbehave-core</artifactId>
 	    <version>4.0.5</version>
 	</dependency>
+	
 	<dependency>
     <groupId>com.codeborne</groupId>
     <artifactId>selenide</artifactId>
     <version>4.11.1</version>
     <scope>test</scope>
+    </dependency>
+    
+	<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongo-java-driver</artifactId>
+    <version>3.7.0</version>
     </dependency>
     
   </dependencies>
