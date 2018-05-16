@@ -7,12 +7,6 @@ import org.junit.Test;
 
 public class DollarDivisionTest {
 	
-	@Ignore
-	@Test
-	public void testFail() {
-		fail("Not yet implemented");
-	}
-	
 	@Test
 	public void testDollarDivision() {
 		// Given
@@ -34,14 +28,14 @@ public class DollarDivisionTest {
 		ten.dividedBy(0);
 	}
 	
-//	@Test()
-//	public void shouldThrowExceptinWhenDividedByMinusTwo() {
-//		// Given
-//		Dollar ten = new Dollar(10);
-//		
-//		// When
-//		ten.dividedBy(-2);
-//	}
+	@Test(expected = NegativeNumberException.class)
+	public void shouldThrowExceptinWhenDividedByMinusTwo() {
+		// Given
+		Dollar ten = new Dollar(10);
+		
+		// When
+		ten.dividedBy(-2);
+	}
 	
 	@Ignore
 	@Test

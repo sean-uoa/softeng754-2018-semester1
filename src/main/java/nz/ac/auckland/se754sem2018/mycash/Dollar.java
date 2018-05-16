@@ -12,7 +12,10 @@ public class Dollar {
 		this.amount  *= multiplier;
 	}
 	
-	public void dividedBy(int denominator) {
+	public void dividedBy(int denominator) throws NegativeNumberException{
+		if (denominator < 0) {
+			throw new NegativeNumberException();
+		}
 		amount /= denominator;
 	}
 }
