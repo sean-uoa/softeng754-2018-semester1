@@ -13,10 +13,10 @@ public class DollarDivisionTest {
 		Dollar ten = new Dollar(10);
 		
 		// When
-		ten.dividedBy(2);
+		Dollar result = ten.dividedBy(2);
 		
 		// Then
-		assertEquals(5, ten.amount);
+		assertEquals(new Dollar(5), result);
 	}
 	
 	@Test(expected=ArithmeticException.class)
@@ -38,24 +38,10 @@ public class DollarDivisionTest {
 	}
 	
 	@Ignore
-	@Test
-	public void testEqualOperation() {
-		// Given
-		Dollar ten = new Dollar(10);
-		Dollar anotherTen = new Dollar(10);
-				
-		// When
-		boolean result = ten.equals(anotherTen);
-				
-		// Then
-		assertTrue(result);
-	}
-	
-	@Ignore
 	@Test(timeout=2000)
 	public void testDivisionTimeout() {
 		for( ; ; ) {
-			
+
 		}
 	}
 	

@@ -13,11 +13,12 @@ public class Dollar {
 		return this;
 	}
 	
-	public void dividedBy(int denominator) throws NegativeNumberException{
+	public Dollar dividedBy(int denominator) throws NegativeNumberException{
 		if (denominator < 0) {
 			throw new NegativeNumberException();
 		}
 		amount /= denominator;
+		return this;
 	}
 	
 	@Override
