@@ -19,4 +19,9 @@ public class Dollar {
 		}
 		amount /= denominator;
 	}
+	
+	@Override
+	public String toString() {
+		return "$"+this.amount;
+	}
 }
