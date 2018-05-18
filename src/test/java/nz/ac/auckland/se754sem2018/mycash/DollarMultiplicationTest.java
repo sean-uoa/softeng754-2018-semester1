@@ -16,8 +16,6 @@ public class DollarMultiplicationTest {
 		
 		// Postconditions
 		assertEquals(new Dollar(10), result);
-		
-		
 	}
 
 }

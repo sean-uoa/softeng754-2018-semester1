@@ -24,4 +24,12 @@ public class Dollar {
 	public String toString() {
 		return "$"+this.amount;
 	}
+	
+	@Override
+	public boolean equals(Object other) {
+		if(other instanceof Dollar && this.amount == ((Dollar) other).amount) {
+			return true;
+		}
+		return false;
+	}
 }
