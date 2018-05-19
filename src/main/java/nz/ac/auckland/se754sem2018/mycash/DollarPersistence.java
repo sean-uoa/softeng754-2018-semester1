@@ -32,4 +32,8 @@ public class DollarPersistence {
 		document.put("NZD", dollar);
 		this.mongoCollection.insertOne(document);
 	}
+	
+	public MongoCollection<Document> getCollection(){
+		return this.mongoCollection;
+	}
 }

@@ -25,10 +25,10 @@ public class DollarPersistenceIntegration {
 		dollarPersistence.saveNZD(five);
 		System.out.println("Dollar save action perfomed!");
 		
-//		MongoCursor<Document> cursor = collection.find().iterator();
-//		while(cursor.hasNext()) {
-//			System.out.println(cursor.next());
-//		}
+		MongoCursor<Document> cursor = dollarPersistence.getCollection().find().iterator();
+		while(cursor.hasNext()) {
+			System.out.println(cursor.next());
+		}
 	}
 
 
