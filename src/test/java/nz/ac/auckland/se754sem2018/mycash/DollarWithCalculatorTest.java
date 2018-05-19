@@ -2,20 +2,25 @@ package nz.ac.auckland.se754sem2018.mycash;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 public class DollarWithCalculatorTest {
 	
+	Dollar five;
+	ICalculator calculator;
+	
+	@Before
+	public void setUp() {
+		//Given
+		five = new Dollar(5);
+		calculator = Mockito.mock(ICalculator.class);
+		five.setCalculator(calculator);
+	}
+	
 	@Test
 	public void shouldHaveNoNullCalculatorWhenSetCalculatorSuccessfully() {
-		
-		//Given
-		Dollar five = new Dollar(5);
-		ICalculator calculator = Mockito.mock(ICalculator.class);
-		
-		// Given
-		five.setCalculator(calculator);
 		
 		// Then
 		assertFalse(five.isCalculatorNull());
@@ -25,10 +30,7 @@ public class DollarWithCalculatorTest {
 	public void shouldReturnTenWhenFiveDollarIsMultipliedByTwo() {
 		
 		// Given
-		Dollar five = new Dollar(5);
-		ICalculator calculator = Mockito.mock(ICalculator.class);
 		Mockito.doReturn(10).when(calculator).multiply(5, 2);
-		five.setCalculator(calculator);
 		
 		// When
 		Dollar result  = five.timesWithCalculator(2);
