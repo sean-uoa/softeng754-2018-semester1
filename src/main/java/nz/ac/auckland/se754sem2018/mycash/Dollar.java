@@ -1,6 +1,6 @@
 package nz.ac.auckland.se754sem2018.mycash;
 
-public class Dollar {
+public class Dollar implements Cloneable{
 	
 	private int amount;
 
@@ -10,7 +10,13 @@ public class Dollar {
 	
 	public Dollar times(int multiplier) {
 		this.amount  *= multiplier;
-		return this;
+		Dollar result = null;
+		try {
+			result = (Dollar)this.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	public Dollar dividedBy(int denominator) throws NegativeNumberException{
@@ -18,7 +24,13 @@ public class Dollar {
 			throw new NegativeNumberException();
 		}
 		amount /= denominator;
-		return this;
+		Dollar result = null;
+		try {
+			result = (Dollar)this.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	@Override
