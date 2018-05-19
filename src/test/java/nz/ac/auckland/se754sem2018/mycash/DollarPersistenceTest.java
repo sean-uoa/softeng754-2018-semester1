@@ -65,7 +65,7 @@ public class DollarPersistenceTest {
 		
 		Dollar five = new Dollar(5);
 		Document document = new Document();
-		document.put("NZD", five);
+		document.put("NZD", five.toString());
 		
 		// When
 		DollarPersistence dollarPersistence = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
