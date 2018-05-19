@@ -3,6 +3,7 @@ package nz.ac.auckland.se754sem2018.mycash;
 public class Dollar implements Cloneable{
 	
 	private int amount;
+	private ICalculator calculator;
 
 	public Dollar(int amount) {
 		this.amount = amount;
@@ -32,5 +33,13 @@ public class Dollar implements Cloneable{
 			return true;
 		}
 		return false;
+	}
+	
+	public void setCalculator(ICalculator calculator) {
+		this.calculator = calculator;
+	}
+	
+	public boolean isCalculatorNull() {
+		return this.calculator == null;
 	}
 }
