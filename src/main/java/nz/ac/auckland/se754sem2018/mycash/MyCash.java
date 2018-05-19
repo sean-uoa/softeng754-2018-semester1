@@ -1,6 +1,7 @@
 package nz.ac.auckland.se754sem2018.mycash;
 
 import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoDatabase;
 
 public class MyCash {
 	
@@ -12,5 +13,10 @@ public class MyCash {
 	
 	public boolean isMongoDBClientNull() {
 		return this.mongoClient == null;
+	}
+	
+	public String getDBName() {
+		MongoDatabase mongoDB = this.mongoClient.getDatabase("my-cash-db");
+		return mongoDB.getName();
 	}
 }
