@@ -10,6 +10,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
+import nz.ac.auckland.se754sem2018.mycash.Dollar;
+
 public class MongoDBServerTest {
 
 	@Test
@@ -19,9 +21,9 @@ public class MongoDBServerTest {
 		System.out.println(database.getName());
 		
 //		database.createCollection("customers");
-		MongoCollection<Document> collection = database.getCollection("customers");
+		MongoCollection<Document> collection = database.getCollection("my-cash-collection");
 		Document document = new Document();
-		document.put("name", "xuyun");
+		document.put("name", new Dollar(5));
 		document.put("company", "UoA");
 		collection.insertOne(document);
 		
