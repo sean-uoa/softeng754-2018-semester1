@@ -44,7 +44,18 @@ public class Dollar implements Cloneable{
 	}
 	
 	public Dollar timesWithCalculator(int multiplier) {
+		if(multiplier < 0) {
+			throw new NegativeNumberException();
+		}
 		int resultantAmount = this.calculator.multiply(this.amount, multiplier);
+		return new Dollar(resultantAmount);
+	}
+	
+	public Dollar dividesWithCalculator(int denominator) {
+		if(denominator < 0) {
+			throw new NegativeNumberException();
+		}
+		int resultantAmount = this.calculator.divide(this.amount, denominator);
 		return new Dollar(resultantAmount);
 	}
 }
