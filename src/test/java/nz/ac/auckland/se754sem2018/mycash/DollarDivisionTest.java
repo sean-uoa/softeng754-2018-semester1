@@ -13,10 +13,22 @@ public class DollarDivisionTest {
 		Dollar ten = new Dollar(10);
 		
 		// When
+		Dollar result = ten.dividedBy(2);
+		
+		// Then
+		assertEquals(new Dollar(5), result);
+	}
+	
+	@Test 
+	public void shouldNotBeAffectedWhenPerformingDivision() {
+		// Given
+		Dollar ten = new Dollar(10);
+		
+		// When
 		ten.dividedBy(2);
 		
 		// Then
-		assertEquals(new Dollar(5), ten);
+		assertEquals(new Dollar(10), ten);
 	}
 	
 	@Test(expected=ArithmeticException.class)

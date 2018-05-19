@@ -17,14 +17,8 @@ public class Dollar implements Cloneable{
 		if (denominator < 0) {
 			throw new NegativeNumberException();
 		}
-		amount /= denominator;
-		Dollar result = null;
-		try {
-			result = (Dollar)this.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return result;
+		int resultantAmount = this.amount/denominator;
+		return new Dollar(resultantAmount);
 	}
 	
 	@Override
