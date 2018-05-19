@@ -6,9 +6,11 @@ import com.mongodb.client.MongoDatabase;
 public class MyCash {
 	
 	MongoClient mongoClient;
-
-	public MyCash(MongoClient mongoClient) {
+	MongoDatabase mongoDatabase;
+	
+	public MyCash(MongoClient mongoClient, String myCashDatabaseName) {
 		this.mongoClient = mongoClient;
+		this.mongoDatabase = this.mongoClient.getDatabase(myCashDatabaseName);
 	}
 	
 	public boolean isMongoDBClientNull() {
@@ -16,7 +18,6 @@ public class MyCash {
 	}
 	
 	public String getDBName() {
-		MongoDatabase mongoDB = this.mongoClient.getDatabase("my-cash-db");
-		return mongoDB.getName();
+		return this.mongoDatabase.getName();
 	}
 }
