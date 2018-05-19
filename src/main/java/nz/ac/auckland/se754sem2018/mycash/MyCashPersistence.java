@@ -3,16 +3,20 @@ package nz.ac.auckland.se754sem2018.mycash;
 import org.bson.Document;
 
 import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-public class MyCash {
+public class MyCashPersistence {
 	
 	MongoClient mongoClient;
 	MongoDatabase mongoDatabase;
+	MongoCollection<Document> mongoCollection;
 	
-	public MyCash(MongoClient mongoClient, String myCashDatabaseName) {
+	public MyCashPersistence(MongoClient mongoClient, 
+			String myCashDatabaseName, String myCashCollectionName) {
 		this.mongoClient = mongoClient;
 		this.mongoDatabase = this.mongoClient.getDatabase(myCashDatabaseName);
+		this.mongoCollection = this.mongoDatabase.getCollection(myCashCollectionName);
 	}
 	
 	public boolean isMongoDBClientNull() {
@@ -23,9 +27,9 @@ public class MyCash {
 		return this.mongoDatabase.getName();
 	}
 	
-	public void save(Dollar dollar) {
+	public void saveNZD(Dollar dollar) {
 		Document document = new Document();
 		document.put("NZD", dollar);
-		this.mongoDatabase.getCollection("my-cash-collection").insertOne(document);
+		this.mongoCollection.insertOne(document);
 	}
 }

@@ -11,23 +11,30 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-public class MyCashTest {
+public class MyCashPersistenceTest {
 	
 	MongoClient mongoClient;
-	String myCashDBString;
+	String myCashDBName;
+	String myCashCollectionName;
+	MongoDatabase mongoDatabase;
 	
 	@Before
 	public void setUp() {
 		// Given
 		mongoClient = Mockito.mock(MongoClient.class);
-		myCashDBString = "my-cash-db";
+		myCashDBName = "my-cash-db";
+		myCashCollectionName = "my-cash-collection";
+		mongoDatabase =  Mockito.mock(MongoDatabase.class);
 	}
 
 	@Test
 	public void shouldInitializeMongoDBClientWhenCreatingMyCash() {
 		
+		// Given
+		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBName);
+		
 		// When
-		MyCash myCash = new MyCash(mongoClient, myCashDBString);
+		MyCashPersistence myCash = new MyCashPersistence(mongoClient, myCashDBName, myCashCollectionName);
 		
 		// Then
 		assertFalse(myCash.isMongoDBClientNull());
@@ -37,34 +44,32 @@ public class MyCashTest {
 	public void shouldHaveDatabaseWithANameAfterCreatingMyCash() {
 		
 		// Given
-		MongoDatabase mongoDatabase =  Mockito.mock(MongoDatabase.class);
-		Mockito.doReturn(myCashDBString).when(mongoDatabase).getName();
-		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBString);
+		Mockito.doReturn(myCashDBName).when(mongoDatabase).getName();
+		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBName);
 		
 		// When
-		MyCash myCash = new MyCash(mongoClient, myCashDBString);
+		MyCashPersistence myCash = new MyCashPersistence(mongoClient, myCashDBName, myCashCollectionName);
 		String dbName = myCash.getDBName();
 		
 		// Then
-		assertEquals(myCashDBString, dbName);
+		assertEquals(myCashDBName, dbName);
 	}
 	
 	@Test
 	public void shouldInvodeTheDatabaseSaveMethodWhenSavingDollar() {
 		// Given
-		MongoDatabase mongoDatabase =  Mockito.mock(MongoDatabase.class);
-		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBString);
+		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBName);
 		
 		MongoCollection<Document> collection = Mockito.mock(MongoCollection.class);
-		Mockito.doReturn(collection).when(mongoDatabase).getCollection("my-cash-collection");
+		Mockito.doReturn(collection).when(mongoDatabase).getCollection(myCashCollectionName);
 		
 		Dollar five = new Dollar(5);
 		Document document = new Document();
 		document.put("NZD", five);
 		
 		// When
-		MyCash myCash = new MyCash(mongoClient, myCashDBString);
-		myCash.save(five);
+		MyCashPersistence myCash = new MyCashPersistence(mongoClient, myCashDBName, myCashCollectionName);
+		myCash.saveNZD(five);
 		
 		// Then
 		Mockito.verify(collection, Mockito.times(1)).insertOne(document);
