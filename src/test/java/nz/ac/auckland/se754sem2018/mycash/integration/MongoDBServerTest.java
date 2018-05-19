@@ -15,10 +15,10 @@ public class MongoDBServerTest {
 	@Test
 	public void shouldConnectToMongoDBServer() {
 		MongoClient mongoClient = new MongoClient("localhost", 27017);
-		MongoDatabase database = mongoClient.getDatabase("myMongoDb");
+		MongoDatabase database = mongoClient.getDatabase("my-cash-db");
 		System.out.println(database.getName());
 		
-		database.createCollection("customers");
+//		database.createCollection("customers");
 		MongoCollection<Document> collection = database.getCollection("customers");
 		Document document = new Document();
 		document.put("name", "xuyun");
