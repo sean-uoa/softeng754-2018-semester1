@@ -6,13 +6,13 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-public class MyCashPersistence {
+public class DollarPersistence {
 	
 	MongoClient mongoClient;
 	MongoDatabase mongoDatabase;
 	MongoCollection<Document> mongoCollection;
 	
-	public MyCashPersistence(MongoClient mongoClient, 
+	public DollarPersistence(MongoClient mongoClient, 
 			String myCashDatabaseName, String myCashCollectionName) {
 		this.mongoClient = mongoClient;
 		this.mongoDatabase = this.mongoClient.getDatabase(myCashDatabaseName);
