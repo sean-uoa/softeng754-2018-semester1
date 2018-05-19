@@ -9,14 +9,8 @@ public class Dollar implements Cloneable{
 	}
 	
 	public Dollar times(int multiplier) {
-		this.amount  *= multiplier;
-		Dollar result = null;
-		try {
-			result = (Dollar)this.clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		return result;
+		int resultantAmount = this.amount*multiplier;
+		return new Dollar(resultantAmount);
 	}
 	
 	public Dollar dividedBy(int denominator) throws NegativeNumberException{

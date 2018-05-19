@@ -12,10 +12,10 @@ public class DollarMultiplicationTest {
 		Dollar five = new Dollar(5);
 		
 		// Actions
-		five.times(2);
+		Dollar result = five.times(2);
 		
 		// Postconditions
-		assertEquals(new Dollar(10), five);
+		assertEquals(new Dollar(10), result);
 	}
 	
 	@Test
@@ -30,18 +30,16 @@ public class DollarMultiplicationTest {
 		assertEquals(new Dollar(10), result);
 	}
 	
-	@Test
-	public void shouldNotBeAffectedWhenTheReturnedClonedDollarModified() {
+	@Test 
+	public void shouldNotBeAffectedWhenPerformingMultiplication() {
 		// Given
 		Dollar five = new Dollar(5);
-		Dollar result = five.times(2);
 		
 		// When
-		result.dividedBy(2);
+		five.times(2);
 		
 		// Then
-		assertEquals(new Dollar(10), five);
-		assertEquals(new Dollar(5), result);
+		assertEquals(new Dollar(5), five);
 	}
 
 }
