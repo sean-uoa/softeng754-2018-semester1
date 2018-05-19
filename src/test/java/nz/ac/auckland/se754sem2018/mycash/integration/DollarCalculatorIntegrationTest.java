@@ -1,10 +1,13 @@
-package nz.ac.auckland.se754sem2018.mycash;
+package nz.ac.auckland.se754sem2018.mycash.integration;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
+
+import nz.ac.auckland.se754sem2018.mycash.Dollar;
+import nz.ac.auckland.se754sem2018.mycash.ICalculator;
+import nz.ac.auckland.se754sem2018.mycash.NegativeNumberException;
 
 public class DollarCalculatorIntegrationTest {
 

@@ -1,9 +1,11 @@
-package nz.ac.auckland.se754sem2018.mycash;
+package nz.ac.auckland.se754sem2018.mycash.integration;
 
 import static org.junit.Assert.*;
 
 import org.junit.Ignore;
 import org.junit.Test;
+
+import nz.ac.auckland.se754sem2018.mycash.integration.WebServiceCalculator;
 
 public class WebServiceCalculatorTest {
 

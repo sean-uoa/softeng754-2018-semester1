@@ -1,9 +1,11 @@
-package nz.ac.auckland.se754sem2018.mycash;
+package nz.ac.auckland.se754sem2018.syntax;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import nz.ac.auckland.se754sem2018.mycash.Dollar;
 
 public class DollarMockitoExampleTest {
 

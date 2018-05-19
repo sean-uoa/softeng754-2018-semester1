@@ -1,4 +1,4 @@
-package nz.ac.auckland.se754sem2018.mycash;
+package nz.ac.auckland.se754sem2018.mycash.acceptance;
 
 import java.util.ArrayList;
 import java.util.Collections;

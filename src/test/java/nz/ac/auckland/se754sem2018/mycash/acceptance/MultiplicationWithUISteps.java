@@ -1,4 +1,4 @@
-package nz.ac.auckland.se754sem2018.mycash;
+package nz.ac.auckland.se754sem2018.mycash.acceptance;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
