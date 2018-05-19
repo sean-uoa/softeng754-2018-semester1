@@ -27,6 +27,7 @@ public class MultiplicationSteps {
 
 	@Then("The resultant amount is $result")
 	public void thenTheResultantAmountIs10(int result) {
-		assertEquals(result, five.amount);
+//		assertEquals(result, five.amount);
+		assertEquals(new Dollar(result), five);
 	}
 }

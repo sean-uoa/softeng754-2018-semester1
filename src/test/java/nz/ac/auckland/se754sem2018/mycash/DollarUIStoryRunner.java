@@ -16,9 +16,9 @@ import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
 
-public class DollarStoryRunner extends JUnitStories{
+public class DollarUIStoryRunner extends JUnitStories{
 	 
-    public DollarStoryRunner() {
+    public DollarUIStoryRunner() {
         configuredEmbedder()
         .embedderControls()
         .doGenerateViewAfterStories(true)
@@ -41,7 +41,7 @@ public class DollarStoryRunner extends JUnitStories{
  
     @Override
     public InjectableStepsFactory stepsFactory() {
-    	return new InstanceStepsFactory(configuration(), new MultiplicationSteps());
+    	return new InstanceStepsFactory(configuration(), new MultiplicationWithUISteps());
     }
      
     @Override
