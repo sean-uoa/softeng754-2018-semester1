@@ -23,7 +23,7 @@ public class MongoDBServerTest {
 //		database.createCollection("customers");
 		MongoCollection<Document> collection = database.getCollection("my-cash-collection");
 		Document document = new Document();
-		document.put("name", new Dollar(5));
+		document.put("name", (new Dollar(5)).toString());
 		document.put("company", "UoA");
 		collection.insertOne(document);
 		

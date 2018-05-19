@@ -29,7 +29,7 @@ public class DollarPersistence {
 	
 	public void saveNZD(Dollar dollar) {
 		Document document = new Document();
-		document.put("NZD", dollar);
+		document.put("NZD", dollar.toString());
 		this.mongoCollection.insertOne(document);
 	}
 	
