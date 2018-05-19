@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.mongodb.client.MongoClient;
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
@@ -34,10 +34,10 @@ public class DollarPersistenceTest {
 		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBName);
 		
 		// When
-		DollarPersistence myCash = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
+		DollarPersistence dollarPersistence = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
 		
 		// Then
-		assertFalse(myCash.isMongoDBClientNull());
+		assertFalse(dollarPersistence.isMongoDBClientNull());
 	}
 	
 	@Test
@@ -48,8 +48,8 @@ public class DollarPersistenceTest {
 		Mockito.doReturn(mongoDatabase).when(mongoClient).getDatabase(myCashDBName);
 		
 		// When
-		DollarPersistence myCash = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
-		String dbName = myCash.getDBName();
+		DollarPersistence dollarPersistence = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
+		String dbName = dollarPersistence.getDBName();
 		
 		// Then
 		assertEquals(myCashDBName, dbName);
@@ -68,8 +68,8 @@ public class DollarPersistenceTest {
 		document.put("NZD", five);
 		
 		// When
-		DollarPersistence myCash = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
-		myCash.saveNZD(five);
+		DollarPersistence dollarPersistence = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
+		dollarPersistence.saveNZD(five);
 		
 		// Then
 		Mockito.verify(collection, Mockito.times(1)).insertOne(document);
