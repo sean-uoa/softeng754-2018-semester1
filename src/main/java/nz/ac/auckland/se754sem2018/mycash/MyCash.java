@@ -1,5 +1,7 @@
 package nz.ac.auckland.se754sem2018.mycash;
 
+import org.bson.Document;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoDatabase;
 
@@ -19,5 +21,11 @@ public class MyCash {
 	
 	public String getDBName() {
 		return this.mongoDatabase.getName();
+	}
+	
+	public void save(Dollar dollar) {
+		Document document = new Document();
+		document.put("NZD", dollar);
+		this.mongoDatabase.getCollection("my-cash-collection").insertOne(document);
 	}
 }
