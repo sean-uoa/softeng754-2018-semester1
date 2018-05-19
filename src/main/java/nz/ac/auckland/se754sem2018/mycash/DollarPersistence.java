@@ -33,7 +33,4 @@ public class DollarPersistence {
 		this.mongoCollection.insertOne(document);
 	}
 	
-	public MongoCollection<Document> getCollection(){
-		return this.mongoCollection;
-	}
 }
