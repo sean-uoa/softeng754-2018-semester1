@@ -8,15 +8,17 @@ public class Dollar {
 		this.amount = amount;
 	}
 	
-	public void times(int multiplier) {
+	public Dollar times(int multiplier) {
 		this.amount  *= multiplier;
+		return this;
 	}
 	
-	public void dividedBy(int denominator) throws NegativeNumberException{
+	public Dollar dividedBy(int denominator) throws NegativeNumberException{
 		if (denominator < 0) {
 			throw new NegativeNumberException();
 		}
 		amount /= denominator;
+		return this;
 	}
 	
 	@Override
