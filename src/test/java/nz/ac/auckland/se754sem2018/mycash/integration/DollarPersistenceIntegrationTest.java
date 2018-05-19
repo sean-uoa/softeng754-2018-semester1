@@ -12,7 +12,7 @@ import com.mongodb.client.MongoDatabase;
 import nz.ac.auckland.se754sem2018.mycash.Dollar;
 import nz.ac.auckland.se754sem2018.mycash.DollarPersistence;
 
-public class DollarPersistenceIntegrationNotRun {
+public class DollarPersistenceIntegrationTest {
 
 	@Test
 	public void shouldConnectToMongoDBServer() {
