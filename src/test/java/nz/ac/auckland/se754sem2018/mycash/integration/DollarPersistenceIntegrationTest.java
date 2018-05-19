@@ -24,11 +24,6 @@ public class DollarPersistenceIntegrationTest {
 		DollarPersistence dollarPersistence = new DollarPersistence(mongoClient, myCashDBName, myCashCollectionName);
 		dollarPersistence.saveNZD(five);
 		System.out.println("Dollar save action perfomed!");
-		
-		MongoCursor<Document> cursor = dollarPersistence.getCollection().find().iterator();
-		while(cursor.hasNext()) {
-			System.out.println(cursor.next());
-		}
 	}
 
 }
