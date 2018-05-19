@@ -20,4 +20,21 @@ public class DollarWithCalculatorTest {
 		// Then
 		assertFalse(five.isCalculatorNull());
 	}
+	
+	@Test
+	public void shouldReturnTenWhenFiveDollarIsMultipliedByTwo() {
+		
+		// Given
+		Dollar five = new Dollar(5);
+		ICalculator calculator = Mockito.mock(ICalculator.class);
+		Mockito.doReturn(10).when(calculator).multiply(5, 2);
+		five.setCalculator(calculator);
+		
+		// When
+		Dollar result  = five.timesWithCalculator(2);
+		
+		// Then
+		assertEquals(new Dollar(10), result);
+	}
+
 }

@@ -42,4 +42,9 @@ public class Dollar implements Cloneable{
 	public boolean isCalculatorNull() {
 		return this.calculator == null;
 	}
+	
+	public Dollar timesWithCalculator(int multiplier) {
+		int resultantAmount = this.calculator.multiply(this.amount, multiplier);
+		return new Dollar(resultantAmount);
+	}
 }
