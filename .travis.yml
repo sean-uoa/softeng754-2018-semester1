@@ -2,6 +2,8 @@ language: java
 jdk: oraclejdk8
 services: mongodb
 
+CODECOV_TOKEN="9107aa52-435a-4e31-bb04-4b5b9ec39538"
+
 script: "mvn cobertura:cobertura"
 
 after_success:
